@@ -30,5 +30,14 @@ def get_log(id):
        
         print(row)
 
+def update_log(id, text):
+    sql = ("UPDATE logs SET text = %s WHERE id = %s")
+    cursor.execute(sql, (text, id,))
+    db.commit()
+    print("log updated")
+
 """ get_logs() """
-get_log(2)
+""" get_log(2) """
+
+update_log(2, 'Updated Log')
+get_logs()
