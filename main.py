@@ -36,8 +36,15 @@ def update_log(id, text):
     db.commit()
     print("log updated")
 
+def delete_log(id):
+    sql = ("DELETE FROM logs WHERE id = %s")
+    cursor.execute(sql, (id,))
+    db.commit()
+    print("log removed")
+
 """ get_logs() """
 """ get_log(2) """
 
-update_log(2, 'Updated Log')
+""" update_log(2, 'Updated Log') """
+delete_log(2)
 get_logs()
