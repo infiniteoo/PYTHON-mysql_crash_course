@@ -18,6 +18,17 @@ def get_logs():
     result = cursor.fetchall()
 
     for row in result:
+        print(row[1])
         print(row)
 
-get_logs()
+def get_log(id):
+    sql = ("SELECT * FROM logs WHERE id = %s")
+    cursor.execute(sql, (id,))
+    result = cursor.fetchone()
+
+    for row in result:
+       
+        print(row)
+
+""" get_logs() """
+get_log(2)
