@@ -8,6 +8,16 @@ def add_log(text, user):
     log_id = cursor.lastrowid
     print("Added log {}".format(log_id))
 
-add_log('This is log one', 'Brad')
+""" add_log('This is log one', 'Brad')
 add_log('This is log two', 'Jeff')
-add_log('This is log three', 'Troy')
+add_log('This is log three', 'Troy') """
+
+def get_logs():
+    sql = ("SELECT * FROM logs ORDER BY created DESC")
+    cursor.execute(sql)
+    result = cursor.fetchall()
+
+    for row in result:
+        print(row)
+
+get_logs()
